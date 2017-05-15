@@ -1,0 +1,23 @@
+{
+  "name": "street-map",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "savokiss <jaynaruto@qq.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/savokiss/street-map",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "knockout": "^3.4.2",
+    "bootstrap": "^3.3.7"
+  }
+}
