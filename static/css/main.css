@@ -17,6 +17,15 @@ html,body {
   color: white;
   background-color: black;
 }
+.sider-list li {
+  height: 40px;
+  line-height: 40px;
+  padding-left: 10px;
+}
+.sider-list li:hover {
+  background-color: #ddd;
+  color: black;
+}
 .main {
   position: absolute;
   width: 80%;
