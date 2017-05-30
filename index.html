@@ -20,7 +20,7 @@
         <input type="text" class="form-control" data-bind="value: filter, valueUpdate: 'afterkeydown'">
       </div>
       <ul class="sider-list" data-bind="foreach: filteredLots">
-        <li data-bind="text: $data">
+        <li data-bind="text: name, click: $parent.markLot">
         </li>
       </ul>
     </div>
@@ -46,7 +46,7 @@
     // TODO: use a constructor to create a new map JS object. You can use the coordinates
     // we used, 40.7413549, -73.99802439999996 or your own!
     map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 40.7413549, lng: -73.9980244},
+      center: {lat: 39.93, lng: 116.39},
       zoom: 13
     });
   }
