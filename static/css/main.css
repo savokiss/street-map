@@ -11,7 +11,7 @@ html,body {
 }
 .sider {
   position: absolute;
-  width: 300px;
+  width: 20%;
   height: 100%;
   padding: 10px;
   color: white;
@@ -31,8 +31,12 @@ html,body {
   position: absolute;
   width: 80%;
   height: 100%;
-  left: 300px;
+  left: 20%;
   top: 0;
+}
+.main--full {
+  width: 100%;
+  left: 0;
 }
 .main-map {
   height: 100%;

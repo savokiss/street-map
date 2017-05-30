@@ -20,7 +20,7 @@ function SiderViewModel() {
 
   self.toggleSider = function() {
     self.siderVisible(!self.siderVisible());
-    console.log(self.siderVisible);
+    // $('#sider').slideToggle();
   }
 }
 
