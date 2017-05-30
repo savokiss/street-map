@@ -46,4 +46,7 @@ function SiderViewModel() {
   }
 }
 
-ko.applyBindings(new SiderViewModel());
+function appInit() {
+  ko.applyBindings(new SiderViewModel());
+  initMap();
+}
