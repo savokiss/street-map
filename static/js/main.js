@@ -1,20 +1,20 @@
 var locations = [{
     name: '什刹海公园',
-    point: {
+    position: {
       lat: 39.9204541,
       lng: 116.3693653
     }
   },
   {
     name: '天安门广场',
-    point: {
+    position: {
       lat: 39.9063748,
       lng: 116.3925044
     }
   },
   {
     name: '奥体公园',
-    point: {
+    position: {
       lat: 39.9942851,
       lng: 116.3915031
     }
@@ -39,7 +39,7 @@ function SiderViewModel() {
   }
 
   self.markLot = function(lot){
-    console.log(lot)
+    showMarker(lot);
   }
 }
 

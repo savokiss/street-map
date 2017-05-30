@@ -37,20 +37,8 @@
 </body>
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script src="lib/knockout/knockout.js"></script>
+<script src="static/js/map.js"></script>
 <script src="static/js/main.js"></script>
-<script>
-  // TODO: Create a map variable
-  var map;
-  // TODO: Complete the following function to initialize the map
-  function initMap() {
-    // TODO: use a constructor to create a new map JS object. You can use the coordinates
-    // we used, 40.7413549, -73.99802439999996 or your own!
-    map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 39.93, lng: 116.39},
-      zoom: 13
-    });
-  }
-</script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqFWaDkttf6_6tveEpt1OfWcRCz2wT_Ys&v=3&callback=initMap">
 </script>
 </html>
