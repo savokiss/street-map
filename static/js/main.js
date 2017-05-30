@@ -21,6 +21,9 @@ var locations = [{
   }
 ]
 
+/**
+ * 侧边栏 VM
+ */
 function SiderViewModel() {
   var self = this;
   this.name = 'savo';
@@ -45,7 +48,9 @@ function SiderViewModel() {
     showMarker(lot);
   }
 }
-
+/**
+ * app 初始化函数，Google JS回调调用
+ */
 function appInit() {
   ko.applyBindings(new SiderViewModel());
   initMap();
