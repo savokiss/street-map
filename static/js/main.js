@@ -12,7 +12,9 @@ function SiderViewModel() {
   self.locations = ko.observableArray(locations);
 
   self.handleFilterChange = function() {
-    console.log(this.filter)
+    self.locations(locations.filter(function(val){
+      return val.indexOf(self.filter) > -1;
+    }));
   }
 }
 
