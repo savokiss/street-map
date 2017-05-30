@@ -1,19 +1,19 @@
 var locations = [{
-    name: '什刹海公园',
+    title: '什刹海公园',
     position: {
       lat: 39.9204541,
       lng: 116.3693653
     }
   },
   {
-    name: '天安门广场',
+    title: '天安门广场',
     position: {
       lat: 39.9063748,
       lng: 116.3925044
     }
   },
   {
-    name: '奥体公园',
+    title: '奥体公园',
     position: {
       lat: 39.9942851,
       lng: 116.3915031
@@ -29,9 +29,12 @@ function SiderViewModel() {
 
   // 动态绑定地址列表
   self.filteredLots = ko.computed(function () {
-    return locations.filter(function (lot) {
-      return lot.name.toLowerCase().indexOf(self.filter().toLowerCase()) > -1;
+    var res =  locations.filter(function (lot) {
+      return lot.title.toLowerCase().indexOf(self.filter().toLowerCase()) > -1;
     });
+    // 更新地图信息
+    updateMarkers(res);
+    return res;
   });
 
   self.toggleSider = function () {
