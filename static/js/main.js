@@ -8,13 +8,19 @@ var locations = [
 function SiderViewModel() {
   var self = this;
   this.name = 'savo';
-  this.filter = '';
-  self.locations = ko.observableArray(locations);
+  this.filter = ko.observable('');
+  this.siderVisible = ko.observable(true);
 
-  self.handleFilterChange = function() {
-    self.locations(locations.filter(function(val){
-      return val.indexOf(self.filter) > -1;
-    }));
+  // 动态绑定地址列表
+  self.filteredLots = ko.computed(function() {
+    return locations.filter(function(lot){
+      return lot.toLowerCase().indexOf(self.filter().toLowerCase()) > -1;
+    });
+  });
+
+  self.toggleSider = function() {
+    self.siderVisible(!self.siderVisible());
+    console.log(self.siderVisible);
   }
 }
 
