@@ -26,9 +26,9 @@ var locations = [{
  */
 function SiderViewModel() {
   var self = this;
-  this.name = 'savo';
-  this.filter = ko.observable('');
-  this.siderVisible = ko.observable(true);
+  self.name = 'savo';
+  self.filter = ko.observable('');
+  self.siderVisible = ko.observable(true);
 
   // 动态绑定地址列表
   self.filteredLots = ko.computed(function () {

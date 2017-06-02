@@ -1,11 +1,10 @@
-  var map;
+  var map, largeInfoWindow;
   var markers = [];
   /**
    * 初始化地图
    */
   function initMap() {
-
-    var largeInfoWindow = new google.maps.InfoWindow();
+    largeInfoWindow = new google.maps.InfoWindow();
     // use a constructor to create a new map JS object. You can use the coordinates
     // we used, 40.7413549, -73.99802439999996 or your own!
     map = new google.maps.Map(document.getElementById('map'), {
@@ -24,12 +23,12 @@
    */
   function updateMarkers(locations) {
     markers = [];
-    for(var i=0;i<locations.length;i++){
+    for (var i = 0; i < locations.length; i++) {
       var position = locations[i].location;
       var title = locations[i].title;
       var marker = showMarker(locations[i], i);
       markers.push(marker);
-      marker.addListener('click', function() {
+      marker.addListener('click', function () {
         populateInfoWindow(this, largeInfoWindow);
       })
     }
