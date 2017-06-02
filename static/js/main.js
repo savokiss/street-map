@@ -30,9 +30,11 @@ function SiderViewModel() {
   self.filter = ko.observable('');
   self.siderVisible = ko.observable(true);
 
-  // 动态绑定地址列表
+  /**
+   * 动态绑定地址列表
+   */
   self.filteredLots = ko.computed(function () {
-    var res =  locations.filter(function (lot) {
+    var res = locations.filter(function (lot) {
       return lot.title.toLowerCase().indexOf(self.filter().toLowerCase()) > -1;
     });
     // 更新地图信息
@@ -40,18 +42,24 @@ function SiderViewModel() {
     return res;
   });
 
+  /**
+   * 切换侧边栏
+   */
   self.toggleSider = function () {
     self.siderVisible(!self.siderVisible());
   }
 
-  self.markLot = function(lot){
-    showMarker(lot);
+  /**
+   * 点击地点高亮地图上的标记
+   */
+  self.markLot = function (lot) {
+    populateInfoWindow(markers[locations.indexOf(lot)]);
   }
 }
 /**
  * app 初始化函数，Google JS回调调用
  */
 function appInit() {
-  ko.applyBindings(new SiderViewModel());
   initMap();
+  ko.applyBindings(new SiderViewModel());
 }

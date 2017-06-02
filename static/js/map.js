@@ -1,10 +1,11 @@
-  var map, largeInfoWindow;
+  var map, largeInfoWindow, bounds;
   var markers = [];
   /**
    * 初始化地图
    */
   function initMap() {
     largeInfoWindow = new google.maps.InfoWindow();
+    bounds = new google.maps.LatLngBounds();
     // use a constructor to create a new map JS object. You can use the coordinates
     // we used, 40.7413549, -73.99802439999996 or your own!
     map = new google.maps.Map(document.getElementById('map'), {
@@ -14,7 +15,8 @@
       },
       zoom: 12
     });
-    updateMarkers(locations)
+    updateMarkers(locations);
+    map.fitBounds(bounds);
   }
 
   /**
@@ -22,15 +24,25 @@
    * @param { Array } locations 包含地址名称和坐标的对象数组
    */
   function updateMarkers(locations) {
-    markers = [];
+    clearMarkers();
     for (var i = 0; i < locations.length; i++) {
       var position = locations[i].location;
       var title = locations[i].title;
       var marker = showMarker(locations[i], i);
       markers.push(marker);
+      bounds.extend(markers[i].position);
       marker.addListener('click', function () {
         populateInfoWindow(this, largeInfoWindow);
       })
+    }
+  }
+
+  /**
+   * 清除地图上所有标记
+   */
+  function clearMarkers() {
+    for (var i = 0; i < markers.length; i++) {
+      markers[i].setMap(null);
     }
   }
 
@@ -55,6 +67,8 @@
    * @param { Object } infowindow InfoWindow对象
    */
   function populateInfoWindow(marker, infowindow) {
+    console.log('marker', marker);
+    infowindow = infowindow || largeInfoWindow;
     // Check to make sure the infowindow is not already opened on this marker.
     if (infowindow.marker != marker) {
       infowindow.marker = marker;
