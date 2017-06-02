@@ -69,6 +69,9 @@
   function populateInfoWindow(marker, infowindow) {
     console.log('marker', marker);
     infowindow = infowindow || largeInfoWindow;
+    if(!marker.map){
+      marker.setMap(map);
+    }
     // Check to make sure the infowindow is not already opened on this marker.
     if (infowindow.marker != marker) {
       infowindow.marker = marker;
