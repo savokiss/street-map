@@ -1,12 +1,4 @@
 var locations = [{
-    title: '什刹海公园',
-    pinyin: 'Shi Cha Hai Gong Yuan',
-    position: {
-      lat: 39.9204541,
-      lng: 116.3693653
-    }
-  },
-  {
     title: '天安门广场',
     pinyin: 'Tian An Men Guang Chang',
     position: {
@@ -15,8 +7,8 @@ var locations = [{
     }
   },
   {
-    title: '奥体公园',
-    pinyin: 'Ao Ti Gong Yuan',
+    title: '奥林匹克公园',
+    pinyin: 'Ao Lin Pi Ke Gong Yuan',
     position: {
       lat: 39.9942851,
       lng: 116.3915031
@@ -89,4 +81,18 @@ function AppViewModel() {
 function appInit() {
   initMap();
   ko.applyBindings(new AppViewModel());
+}
+
+/**
+ * 获取 foursquare 数据
+ * @param { String } location 
+ */
+function requestApi(location) {
+  var clientId = 'EK1A12BSCKPWIGLZOWRWI44OBGJSG1M35FMPXVCGRVI1ZGUK';
+  var clientSecret = 'WOJWRAPLVCN5FNKH52D4P4Q5YDF2RWDZQ5QCKUE5KPYXIJC1';
+  var url = 'https://api.foursquare.com/v2/venues/search?v=20170601';
+  var requestUrl = url + '&near=' + location + '&client_id=' + clientId + '&client_secret=' + clientSecret;
+  return $.get(requestUrl).then(function (data) {
+    console.log(data);
+  });
 }

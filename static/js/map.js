@@ -67,7 +67,7 @@
    * @param { Object } infowindow InfoWindow对象
    */
   function populateInfoWindow(marker, infowindow) {
-    console.log('marker', marker);
+    requestApi(marker.title);
     infowindow = infowindow || largeInfoWindow;
     if(!marker.map){
       marker.setMap(map);
