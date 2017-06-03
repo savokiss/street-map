@@ -32,7 +32,7 @@
       markers.push(marker);
       bounds.extend(markers[i].position);
       marker.addListener('click', function () {
-        requestApi(this.title).then(function(data){
+        requestApi(this.title).then(function (data) {
           populateInfoWindow(this, data.geocode.feature.highlightedName);
         }.bind(this));
       })
@@ -69,8 +69,7 @@
    * @param { Object } infowindow InfoWindow对象
    */
   function populateInfoWindow(marker, displayContent) {
-    console.log(displayContent);
-    if(!marker.map){
+    if (!marker.map) {
       marker.setMap(map);
     }
     // Check to make sure the infowindow is not already opened on this marker.
@@ -84,7 +83,8 @@
       });
       // bounce marker
       marker.setAnimation(google.maps.Animation.BOUNCE);
-      setTimeout(function(){
+      // clear animation
+      setTimeout(function () {
         marker.setAnimation(null);
       }, 1400)
     }
