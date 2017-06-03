@@ -35,12 +35,28 @@ html,body {
   top: 0;
 }
 .main--full {
-  width: 100%;
-  left: 0;
+  width: 100%!important;
+  left: 0!important;
 }
 .main-map {
   height: 100%;
 }
 #map {
   height: 100%;
+}
+
+@media (max-width: 768px) {
+  .sider {
+    width: 30%;
+  }
+  .sider-header h3{
+    font-size: 16px;
+  }
+  .sider-list li {
+    font-size: 12px;
+  }
+  .main {
+    width: 70%;
+    left: 30%;
+  }
 }
