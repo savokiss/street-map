@@ -93,6 +93,10 @@ function requestApi(location) {
   var url = 'https://api.foursquare.com/v2/venues/search?v=20170601';
   var requestUrl = url + '&near=' + location + '&client_id=' + clientId + '&client_secret=' + clientSecret;
   return $.get(requestUrl).then(function (data) {
-    console.log(data);
+    console.log('data')
+    return data.response;
+  }, function (data) {
+    console.log(data)
+    alert(data.responseJSON.meta.errorDetail);
   });
 }

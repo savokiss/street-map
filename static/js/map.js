@@ -1,10 +1,10 @@
-  var map, largeInfoWindow, bounds;
+  var map, infowindow, bounds;
   var markers = [];
   /**
    * 初始化地图
    */
   function initMap() {
-    largeInfoWindow = new google.maps.InfoWindow();
+    infowindow = new google.maps.InfoWindow();
     bounds = new google.maps.LatLngBounds();
     // use a constructor to create a new map JS object. You can use the coordinates
     // we used, 40.7413549, -73.99802439999996 or your own!
@@ -32,7 +32,9 @@
       markers.push(marker);
       bounds.extend(markers[i].position);
       marker.addListener('click', function () {
-        populateInfoWindow(this, largeInfoWindow);
+        requestApi(this.title).then(function(data){
+          populateInfoWindow(this, data.geocode.feature.highlightedName);
+        }.bind(this));
       })
     }
   }
@@ -66,16 +68,15 @@
    * @param { Object } marker Marker对象
    * @param { Object } infowindow InfoWindow对象
    */
-  function populateInfoWindow(marker, infowindow) {
-    requestApi(marker.title);
-    infowindow = infowindow || largeInfoWindow;
+  function populateInfoWindow(marker, displayContent) {
+    console.log(displayContent);
     if(!marker.map){
       marker.setMap(map);
     }
     // Check to make sure the infowindow is not already opened on this marker.
     if (infowindow.marker != marker) {
       infowindow.marker = marker;
-      infowindow.setContent('<div>' + marker.title + '</div>');
+      infowindow.setContent(displayContent);
       infowindow.open(map, marker);
       // Make sure the marker property is cleared if the infowindow is closed.
       infowindow.addListener('closeclick', function () {
