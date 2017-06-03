@@ -1,5 +1,6 @@
 var locations = [{
     title: '什刹海公园',
+    pinyin: 'Shi Cha Hai Gong Yuan',
     position: {
       lat: 39.9204541,
       lng: 116.3693653
@@ -7,6 +8,7 @@ var locations = [{
   },
   {
     title: '天安门广场',
+    pinyin: 'Tian An Men Guang Chang',
     position: {
       lat: 39.9063748,
       lng: 116.3925044
@@ -14,9 +16,34 @@ var locations = [{
   },
   {
     title: '奥体公园',
+    pinyin: 'Ao Ti Gong Yuan',
     position: {
       lat: 39.9942851,
       lng: 116.3915031
+    }
+  },
+  {
+    title: '颐和园',
+    pinyin: 'Yi He Yuan',
+    position: {
+      lat: 39.9892384,
+      lng: 116.232084212
+    }
+  },
+  {
+    title: '大观园',
+    pinyin: 'Da Guan Yuan',
+    position: {
+      lat: 39.8712889,
+      lng: 116.353961517
+    }
+  },
+  {
+    title: '故宫博物院',
+    pinyin: 'Gu Gong Bo Wu Yuan',
+    position: {
+      lat: 39.9101321,
+      lng: 116.363471212
     }
   }
 ]
