@@ -24,7 +24,7 @@ var locations = [{
 /**
  * 侧边栏 VM
  */
-function SiderViewModel() {
+function AppViewModel() {
   var self = this;
   self.name = 'savo';
   self.filter = ko.observable('');
@@ -61,5 +61,5 @@ function SiderViewModel() {
  */
 function appInit() {
   initMap();
-  ko.applyBindings(new SiderViewModel());
+  ko.applyBindings(new AppViewModel());
 }
