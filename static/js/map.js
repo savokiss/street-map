@@ -81,5 +81,10 @@
       infowindow.addListener('closeclick', function () {
         infowindow.setMarker = null;
       });
+      // bounce marker
+      marker.setAnimation(google.maps.Animation.BOUNCE);
+      setTimeout(function(){
+        marker.setAnimation(null);
+      }, 1400)
     }
   }
