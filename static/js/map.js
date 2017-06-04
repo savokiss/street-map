@@ -33,7 +33,9 @@
       bounds.extend(markers[i].position);
       marker.addListener('click', function () {
         requestApi(this.title).then(function (data) {
-          populateInfoWindow(this, data.geocode.feature.highlightedName);
+          var feature = data.geocode.feature;
+          var displayContent = feature.highlightedName + '<br><b>En:</b> ' + feature.name;
+          populateInfoWindow(this, displayContent);
         }.bind(this));
       })
     }
