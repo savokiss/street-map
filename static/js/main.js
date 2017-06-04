@@ -72,7 +72,7 @@ function AppViewModel() {
    * 点击地点高亮地图上的标记
    */
   self.markLot = function (lot) {
-    populateInfoWindow(markers[locations.indexOf(lot)]);
+    google.maps.event.trigger(markers[locations.indexOf(lot)], 'click');
   }
 }
 /**
@@ -85,7 +85,7 @@ function appInit() {
 
 /**
  * 获取 foursquare 数据
- * @param { String } location 
+ * @param { String } location
  */
 function requestApi(location) {
   var clientId = 'EK1A12BSCKPWIGLZOWRWI44OBGJSG1M35FMPXVCGRVI1ZGUK';

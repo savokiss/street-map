@@ -64,7 +64,7 @@
   }
 
   /**
-   * 
+   *
    * @param { Object } marker Marker对象
    * @param { Object } infowindow InfoWindow对象
    */
@@ -88,4 +88,11 @@
         marker.setAnimation(null);
       }, 1400)
     }
+  }
+
+  /**
+   * Google Map Error Handler
+   */
+  function mapError(){
+    alert('Google Map initialized Error');
   }
