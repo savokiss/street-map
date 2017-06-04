@@ -12,7 +12,7 @@
 
 <body>
   <div class="content">
-    <div id="sider" class="sider" data-bind="visible: siderVisible">
+    <div id="sider" class="sider" data-bind="css: { 'sider--hidden': !siderVisible() }">
       <div class="sider-header">
         <h3>街区地图</h3>
       </div>
